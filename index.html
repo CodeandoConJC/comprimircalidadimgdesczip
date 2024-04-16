@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Comprimir imagenes y descargar ZIP</title>
+	</head>
+	<body>
+		<div class="container-fluid justify-content-center border p-0">
+			<div class="container-fluid pt-3 pb-3 text-center bg-secondary">
+				<img src="img/comprimir.png" height="100px">
+				<div class="mt-3 fs-4 text-white">
+					Comprimir una o varias imagenes con Javascript y descarga en ZIP
+				</div>
+				<div class="small text-white">
+					HTML + Javascript + Librería jszip + Bootstrap v 5
+				</div>
+			</div>
+
+			<div class="mt-3 mb-3 p-3">
+				<div class="row justify-content-center">
+					<div class="col-md-5">
+						<div class="row border border-secondary">
+							<h3>seleccionar imagen</h3>
+							<hr>
+							<div class="text-center m-2" onclick="javascript:abrir_exp_foto();">
+								<img src="img/explorar.png" height="50">
+							</div>
+							<div  class="mt-3 fst-italic small text-muted text-center">
+	            		Clic para buscar el archivo
+							</div>
+						</div>
+
+						<div class="row mt-4 border border-secondary shadow">
+							<h3>Calidad</h3>
+							<hr>
+							<input type="range" step="1" min="1" max="100" id="calidad" class="form-range mt-2 p-2" onchange="javascript:mostrar_valor_calidad();">
+							<div id="valor_calidad" class="mt-3 fst-italic small text-muted text-center">
+								Deslice para cambiar
+							</div>
+						</div>
+
+						<div class="row mt-4 border border-secondary shadow">
+							<h3>Opciones</h3>
+							<hr>
+							<div class="col-md-12 mb-3 text-center">
+								<button type="button" id="btn_comprimir" class="btn btn-lg btn-outline-dark">COMPRIMIR IMG</button>
+							</div>
+
+						</div>
+
+						<input type="file" id="f_subir" style="display:none;" accept="image/*" multiple onchange="javascript:obtener_vista_previa();">
+
+						<div id="lista_archivos"></div>
+					</div>
+
+					<div class="col-md-5 ms-2 border border-secondary shadow">
+						<h3>Vista Previa</h3>
+						<hr>
+						<div class="row">
+							<div id="div_comp" class="col-md-6 p-2 d-none">
+								<div class="fs-6 fst-italic text-muted">
+									IMG A COMPRIMIR
+								</div>
+							<div id="vista_previa" class="">
+
+							</div>
+							</div>
+
+							<div id="div_comp02" class="col-md-6 p-2 d-none">
+								<div class="fs-6 fst-italic text-muted">
+									IMG COMPRIMIDA
+								</div>
+							<div id="vista_previa_02" class="">
+
+							</div>
+							</div>
+						</div>
+						<div id="div_desc" class="text-center d-none">
+							<a id="btn_descargar" class="text-decoration-none">
+							<img src="img/iconodescargar.png" height="45px">
+							<br>
+							<small>Descargar ZIP</small>
+							</a>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="row mt-4 mb-4 p-2 justify-content-center">
+				<div class="col-md-6 text-justify border border-secondary p-2 rounded shadow">
+					<div class="fw-bold p-2 text-center">
+						* Notas sobre la versión
+					</div>
+					<div class="text-justify">
+						<ul>
+							<li>Se solicita al usuario seleccionar imagenes. Se pueden seleccionar varias al mismo tiempo desde el explorador.</li>
+							<li>Al seleccionar las imagenes del explorador, se muestra la vista previa de cada imagen.</li>
+							<li>Se presenta un input range, para modificar el porcentaje de calidad de compresión para las imagenes.</li>
+							<li>Se muestra el porcentaje en número.</li>
+							<li>Existe un botón para iniciar el proceso de compresión.</li>
+							<li>Al terminar la compresión, en automático, se presenta el cuadro de diálogo de descargar archivo en formato ZIP. Este archivo ZIP contiene todas las imagenes con compresión aplicada.</li>
+							<li>Se presenta la opción para descargar cada imagen de forma individual.</li>
+							<li>Se utiliza HTML, Vanilla Javascript, la Librería jszip, y Bootstrap v 5</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</body>
+
+	<!-- Cambiar directorio de Bootstrap -->
+	<link href="../css/bootstrap.css" rel="stylesheet"/>
+	<script src="../js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="js/jszip.js"></script>
+	<script src="js/comprimir.js"></script>
+</html>
